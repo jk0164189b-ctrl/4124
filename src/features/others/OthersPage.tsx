@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import {
-  Image,
+  Image, 
   Search,
   Gamepad,
   BarChart,
