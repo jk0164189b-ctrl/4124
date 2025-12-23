@@ -13,7 +13,7 @@ const newsSections = [
     id: "schedule",
     title: "일정 · D-DAY",
     description: "스텔라이브 전체 일정",
-    icon: Calendar,
+    icon: Calendar, // <Calendar />가 아니라 컴포넌트 자체를 전달
     path: "schedule",
   },
   {
@@ -78,8 +78,9 @@ export function NewsPage() {
                 style={({ isActive }) =>
                   isActive
                     ? {
+                        // globals.css 수정으로 이제 blue 색상이 정상 작동합니다.
                         boxShadow:
-                          "0 0 0 1px #93c5fd, 0 12px 24px rgba(0,0,0,0.08)",
+                          "0 0 0 1px #60a5fa, 0 12px 24px rgba(0,0,0,0.08)", // blue-400 Hex code
                       }
                     : undefined
                 }
@@ -93,18 +94,17 @@ export function NewsPage() {
                         transition-opacity duration-300 pointer-events-none
                         ${
                           isActive
-                            ? "opacity-60"
-                            : "opacity-0 group-hover:opacity-40"
+                            ? "opacity-60" // 클릭됨: 진하게
+                            : "opacity-0 group-hover:opacity-40" // 호버: 은은하게
                         } 
                       `}
                       style={{
                         background:
-                          "linear-gradient(135deg, #bfdbfe, #67e8f9)",
+                          "linear-gradient(135deg, #bfdbfe, #67e8f9)", // blue-200 -> cyan-200
                       }}
                     />
 
                     {/* 아이콘 컨테이너 */}
-                    {/* text- 클래스를 이곳(부모)이나 아이콘에 직접 주어 색상을 제어합니다 */}
                     <div
                       className={`
                         relative z-10 mb-3 w-12 h-12 rounded-xl flex items-center justify-center 
@@ -116,22 +116,22 @@ export function NewsPage() {
                         }
                       `}
                     >
+                      {/* 아이콘 렌더링: text- 색상을 통해 stroke 제어 */}
                       <Icon
-                        /* 핵심 수정 사항: stroke="currentColor" 명시 + text- 클래스 사용 */
-                        stroke="currentColor" 
+                        stroke="currentColor"
                         strokeWidth={2}
                         className={`
                           w-6 h-6 transition-colors duration-300
                           ${
                             isActive
-                              ? "text-white" // 클릭됨: 흰색 (currentColor가 흰색이 됨)
+                              ? "text-white" // 클릭됨: 흰색 (아이콘 배경이 파랑이므로)
                               : "text-blue-500 group-hover:text-white" // 평소: 파랑 -> 호버: 흰색
                           }
                         `}
                       />
                     </div>
 
-                    {/* 텍스트 라벨 */}
+                    {/* 텍스트 */}
                     <div className="relative z-10 mt-auto">
                       <div
                         className={`font-bold text-sm md:text-base transition-colors duration-300 ${
