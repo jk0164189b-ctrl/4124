@@ -4,7 +4,7 @@ import {
   FileText,
   Twitter,
   Radio,
-  Music, 
+  Music,
   Youtube,
 } from "lucide-react";
 
@@ -13,7 +13,7 @@ const newsSections = [
     id: "schedule",
     title: "일정 · D-DAY",
     description: "스텔라이브 전체 일정",
-    icon: Calendar, // <Calendar />가 아니라 컴포넌트 자체를 전달
+    icon: Calendar,
     path: "schedule",
   },
   {
@@ -78,9 +78,8 @@ export function NewsPage() {
                 style={({ isActive }) =>
                   isActive
                     ? {
-                        // globals.css 수정으로 이제 blue 색상이 정상 작동합니다.
                         boxShadow:
-                          "0 0 0 1px #60a5fa, 0 12px 24px rgba(0,0,0,0.08)", // blue-400 Hex code
+                          "0 0 0 1px #60a5fa, 0 12px 24px rgba(0,0,0,0.08)",
                       }
                     : undefined
                 }
@@ -94,13 +93,13 @@ export function NewsPage() {
                         transition-opacity duration-300 pointer-events-none
                         ${
                           isActive
-                            ? "opacity-60" // 클릭됨: 진하게
-                            : "opacity-0 group-hover:opacity-40" // 호버: 은은하게
+                            ? "opacity-60"
+                            : "opacity-0 group-hover:opacity-40"
                         } 
                       `}
                       style={{
                         background:
-                          "linear-gradient(135deg, #bfdbfe, #67e8f9)", // blue-200 -> cyan-200
+                          "linear-gradient(135deg, #bfdbfe, #67e8f9)",
                       }}
                     />
 
@@ -116,22 +115,25 @@ export function NewsPage() {
                         }
                       `}
                     >
-                      {/* 아이콘 렌더링: text- 색상을 통해 stroke 제어 */}
+                      {/* [핵심 변경 사항] 
+                         text- 대신 stroke- 클래스를 사용하여 선 색상을 직접 지정합니다.
+                         혹시 몰라 Tailwind 색상 변수 대신 Hex 코드(#3b82f6)를 직접 사용하여 
+                         가장 안전하게 처리했습니다.
+                      */}
                       <Icon
-                        stroke="currentColor"
                         strokeWidth={2}
                         className={`
                           w-6 h-6 transition-colors duration-300
                           ${
                             isActive
-                              ? "text-white" // 클릭됨: 흰색 (아이콘 배경이 파랑이므로)
-                              : "text-blue-500 group-hover:text-white" // 평소: 파랑 -> 호버: 흰색
+                              ? "stroke-white" // 클릭됨: 흰색
+                              : "stroke-[#3b82f6] group-hover:stroke-white" // 평소: 파랑(#3b82f6) -> 호버: 흰색
                           }
                         `}
                       />
                     </div>
 
-                    {/* 텍스트 */}
+                    {/* 텍스트 라벨 */}
                     <div className="relative z-10 mt-auto">
                       <div
                         className={`font-bold text-sm md:text-base transition-colors duration-300 ${
