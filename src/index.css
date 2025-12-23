@@ -2388,6 +2388,18 @@
     .group-hover\:text-purple-400:is(:where(.group):hover *) {
       color: var(--color-purple-400);
     }
+    
+    .group-hover\:text-blue-400:is(:where(.group):hover *) {
+      color: var(--color-blue-400);
+    }
+
+    .group-hover\:text-emerald-400:is(:where(.group):hover *) {
+      color: var(--color-emerald-400);
+    }
+    
+    .group-hover\:text-pink-400:is(:where(.group):hover *) {
+      color: var(--color-pink-400);
+    }
   }
 
   @media (hover: hover) {
@@ -2439,6 +2451,15 @@
   @media (hover: hover) {
     .hover\:border-purple-100:hover {
       border-color: var(--color-purple-100);
+    }
+    .hover\:border-blue-100:hover {
+      border-color: var(--color-blue-100);
+    }
+    .hover\:border-emerald-100:hover {
+      border-color: var(--color-emerald-100);
+    }
+    .hover\:border-pink-100:hover {
+      border-color: var(--color-pink-100);
     }
   }
 
