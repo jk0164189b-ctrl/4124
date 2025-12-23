@@ -24,7 +24,6 @@ export function NewsPage() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
           {newsSections.map((section) => {
             const Icon = section.icon;
-
             return (
               <NavLink
                 key={section.id}
@@ -35,65 +34,59 @@ export function NewsPage() {
                   transition-all duration-300 cursor-pointer border
                   ${
                     isActive
-                      ? "bg-white shadow-xl scale-[1.02] border-theme-blue" // 커스텀 테마 색상 (Blue)
-                      : "bg-white/70 border-transparent hover:bg-theme-blue-soft hover:shadow-lg hover:scale-[1.01]" // 커스텀 배경 (Soft Blue)
+                      ? "bg-white shadow-xl scale-[1.02]"
+                      : "bg-white/70 border-transparent hover:bg-white hover:shadow-lg hover:scale-[1.01]"
                   }
                 `}
                 style={({ isActive }) =>
                   isActive
                     ? {
-                        // 그림자 색상은 Tailwind 클래스로 한계가 있을 때만 style 유지 (혹은 index.css에 shadow 정의 추가 가능)
-                        boxShadow: "0 0 0 1px #60a5fa, 0 12px 24px rgba(0,0,0,0.08)",
+                        borderColor: "#60a5fa", // blue-400
+                        boxShadow:
+                          "0 0 0 1px #93c5fd, 0 12px 24px rgba(0,0,0,0.08)",
                       }
                     : undefined
                 }
               >
                 {({ isActive }) => (
-                  <>
-                    {/* 우상단 빛 효과 */}
-                    <div
-                      className={`
-                        absolute -top-4 -right-4 w-24 h-24 rounded-full blur-2xl 
-                        transition-opacity duration-300 pointer-events-none
-                        bg-gradient-to-br from-theme-blue-soft to-theme-cyan
-                        ${isActive ? "opacity-60" : "opacity-0 group-hover:opacity-40"} 
-                      `}
-                    />
 
-                    {/* 아이콘 컨테이너 (Blue -> Cyan 그라데이션) */}
+                  <>
+                    {/* 우상단 blur (active only) */}
+                    {isActive && (
+                      <div
+                        className="absolute -top-4 -right-4 w-24 h-24 rounded-full blur-2xl opacity-60"
+                        style={{
+                          background:
+                            "linear-gradient(135deg, #bfdbfe, #67e8f9)", // blue-200 → cyan-200
+                        }}
+                      />
+                    )}
+                    {/* 아이콘 */}
                     <div
-                      className={`
-                        relative z-10 mb-3 w-12 h-12 rounded-xl flex items-center justify-center 
-                        transition-all duration-300 group-hover:scale-110
-                        ${
-                          isActive
-                            ? "bg-gradient-to-br from-theme-blue to-theme-cyan shadow-md"
-                            : "bg-white shadow-sm group-hover:bg-gradient-to-br group-hover:from-theme-blue group-hover:to-theme-cyan"
-                        }
-                      `}
+                      className="relative z-10 mb-3 w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      style={
+                        isActive
+                          ? {
+                              background:
+                                "linear-gradient(135deg, #3b82f6, #06b6d4)", // blue-500 → cyan-500
+                              boxShadow: "0 4px 12px rgba(59,130,246,0.35)",
+                            }
+                          : {
+                              background: "#ffffff",
+                              boxShadow: "0 1px 2px rgba(0,0,0,0.06)",
+                            }
+                      }
                     >
-                      {/* 아이콘: stroke="currentColor"를 사용하여 텍스트 색상을 따라감 */}
                       <Icon
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        className={`
-                          w-6 h-6 transition-colors duration-300
-                          ${
-                            isActive
-                              ? "text-white" // Active: 흰색
-                              : "text-theme-blue group-hover:text-white" // 평소: Theme Blue -> Hover: 흰색
-                          }
-                        `}
+                        className="w-6 h-6 transition-colors duration-300"
+                        stroke={isActive ? "#ffffff" : "#3b82f6"} // 🔴 핵심
                       />
                     </div>
-
                     {/* 텍스트 */}
                     <div className="relative z-10 mt-auto">
                       <div
-                        className={`font-bold text-sm md:text-base transition-colors duration-300 ${
-                          isActive
-                            ? "text-gray-900"
-                            : "text-gray-700 group-hover:text-gray-900"
+                        className={`font-bold text-sm md:text-base ${
+                          isActive ? "text-gray-900" : "text-gray-700"
                         }`}
                       >
                         {section.title}
@@ -108,7 +101,6 @@ export function NewsPage() {
             );
           })}
         </div>
-
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 min-h-[400px]">
           <Outlet />
         </div>
