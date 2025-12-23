@@ -13,46 +13,45 @@ const otherSections = [
     id: "fanArt",
     title: "팬아트",
     description: "쇼츠처럼 보는 아카이브",
-    icon: Image,
+    icon: <Image className="w-6 h-6" />, // icon: Image -> icon: <Image ... />
     path: "fanArt",
   },
   {
     id: "karaoke",
     title: "노래방",
     description: "곡별 노래방 번호 찾기",
-    icon: Search,
+    icon: <Search className="w-6 h-6" />,
     path: "karaoke",
   },
   {
     id: "games",
     title: "팬게임",
     description: "팬 제작 게임 모음",
-    icon: Gamepad,
+    icon: <Gamepad className="w-6 h-6" />,
     path: "games",
   },
   {
     id: "stats",
     title: "팬덤 통계",
     description: "활동 데이터 분석",
-    icon: BarChart,
+    icon: <BarChart className="w-6 h-6" />,
     path: "stats",
   },
   {
     id: "kirinuki",
     title: "키리누키",
     description: "클립 영상 랭킹",
-    icon: Video,
+    icon: <Video className="w-6 h-6" />,
     path: "kirinuki",
   },
   {
     id: "fortune",
     title: "오늘의 운세",
     description: "재미로 보는 운세",
-    icon: Star,
+    icon: <Star className="w-6 h-6" />,
     path: "fortune",
   },
 ];
-
 export function OthersPage() {
   return (
     <div className="h-full overflow-y-auto custom-scrollbar">
