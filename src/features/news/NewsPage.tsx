@@ -71,13 +71,14 @@ export function NewsPage() {
                   transition-all duration-300 cursor-pointer border
                   ${
                     isActive
-                      ? "bg-white shadow-xl scale-[1.02] border-blue-400"
+                      ? "bg-white shadow-xl scale-[1.02] border-[#60a5fa]"
                       : "bg-white/70 border-transparent hover:bg-white hover:shadow-lg hover:scale-[1.01]"
                   }
                 `}
                 style={({ isActive }) =>
                   isActive
                     ? {
+                        // 클릭되었을 때 파란색 테두리와 그림자 (Hex 코드 사용)
                         boxShadow:
                           "0 0 0 1px #60a5fa, 0 12px 24px rgba(0,0,0,0.08)",
                       }
@@ -86,20 +87,20 @@ export function NewsPage() {
               >
                 {({ isActive }) => (
                   <>
-                    {/* 우상단 blur 효과 */}
+                    {/* 우상단 빛 효과 (Active 상태 + Hover 상태 모두 적용) */}
                     <div
                       className={`
                         absolute -top-4 -right-4 w-24 h-24 rounded-full blur-2xl 
                         transition-opacity duration-300 pointer-events-none
                         ${
                           isActive
-                            ? "opacity-60"
-                            : "opacity-0 group-hover:opacity-40"
+                            ? "opacity-60" // 클릭됨: 진하게
+                            : "opacity-0 group-hover:opacity-40" // 호버: 은은하게
                         } 
                       `}
                       style={{
                         background:
-                          "linear-gradient(135deg, #bfdbfe, #67e8f9)",
+                          "linear-gradient(135deg, #bfdbfe, #67e8f9)", // blue-200 -> cyan-200
                       }}
                     />
 
@@ -110,16 +111,12 @@ export function NewsPage() {
                         transition-all duration-300 group-hover:scale-110
                         ${
                           isActive
-                            ? "bg-gradient-to-br from-blue-500 to-cyan-500 shadow-[0_4px_12px_rgba(59,130,246,0.35)]"
-                            : "bg-white shadow-sm group-hover:bg-gradient-to-br group-hover:from-blue-500 group-hover:to-cyan-500"
+                            ? "bg-gradient-to-br from-[#3b82f6] to-[#06b6d4] shadow-[0_4px_12px_rgba(59,130,246,0.35)]" // Active: 파란 그라데이션
+                            : "bg-white shadow-sm group-hover:bg-gradient-to-br group-hover:from-[#3b82f6] group-hover:to-[#06b6d4]" // Hover: 파란 그라데이션
                         }
                       `}
                     >
-                      {/* [핵심 변경 사항] 
-                         text- 대신 stroke- 클래스를 사용하여 선 색상을 직접 지정합니다.
-                         혹시 몰라 Tailwind 색상 변수 대신 Hex 코드(#3b82f6)를 직접 사용하여 
-                         가장 안전하게 처리했습니다.
-                      */}
+                      {/* 아이콘 */}
                       <Icon
                         strokeWidth={2}
                         className={`
