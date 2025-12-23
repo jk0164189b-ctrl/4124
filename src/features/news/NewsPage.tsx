@@ -35,19 +35,10 @@ export function NewsPage() {
                   transition-all duration-300 cursor-pointer border
                   ${
                     isActive
-                      ? "bg-white shadow-xl scale-[1.02] border-[var(--color-blue-400)]" // Active: 파란 테두리
-                      : "bg-white/70 border-transparent hover:bg-blue-50 hover:shadow-lg hover:scale-[1.01]" // Hover: 연한 파란 배경
+                      ? "bg-white shadow-xl scale-[1.02] border-blue-400 ring-1 ring-blue-400" // [변경] ring 유틸리티 사용으로 인라인 스타일 제거
+                      : "bg-white/70 border-transparent hover:bg-blue-50 hover:shadow-lg hover:scale-[1.01]"
                   }
                 `}
-                style={({ isActive }) =>
-                  isActive
-                    ? {
-                        // 그림자: CSS 변수를 직접 사용해 통일감 유지
-                        boxShadow:
-                          "0 0 0 1px var(--color-blue-400), 0 12px 24px rgba(0,0,0,0.08)",
-                      }
-                    : undefined
-                }
               >
                 {({ isActive }) => (
                   <>
@@ -56,17 +47,14 @@ export function NewsPage() {
                       className={`
                         absolute -top-4 -right-4 w-24 h-24 rounded-full blur-2xl 
                         transition-opacity duration-300 pointer-events-none
+                        bg-gradient-to-br from-blue-200 to-cyan-400 
                         ${
                           isActive
                             ? "opacity-60"
                             : "opacity-0 group-hover:opacity-40"
-                        }
+                        } 
                       `}
-                      style={{
-                        // 배경 그라데이션: Blue-200 -> Cyan-200 느낌
-                        background:
-                          "linear-gradient(135deg, #bfdbfe, #a5f3fc)",
-                      }}
+                      // [변경] style={{ background: ... }} 제거하고 위쪽에 Tailwind class (bg-gradient-to-br) 적용
                     />
 
                     {/* 아이콘 컨테이너 */}
@@ -76,16 +64,12 @@ export function NewsPage() {
                         transition-all duration-300 group-hover:scale-110
                         ${
                           isActive
-                             // Active: 파란색 그라데이션 배경
-                            ? "bg-gradient-to-br from-[var(--color-blue-500)] to-[#06b6d4] shadow-md"
-                             // Inactive: 흰색 배경 -> Hover: 파란색 그라데이션 배경
-                            : "bg-white shadow-sm group-hover:bg-gradient-to-br group-hover:from-[var(--color-blue-500)] group-hover:to-[#06b6d4]"
+                            // [변경] hex 코드와 var() 제거 -> from-blue-500 to-cyan-500 사용
+                            ? "bg-gradient-to-br from-blue-500 to-cyan-500 shadow-md"
+                            : "bg-white shadow-sm group-hover:bg-gradient-to-br group-hover:from-blue-500 group-hover:to-cyan-500"
                         }
                       `}
                     >
-                      {/* [차이점] 사용자가 주신 코드는 hover 기능이 빠져있었습니다.
-                         아래 코드는 stroke를 직접 제어하되, group-hover 시 흰색으로 변하는 기능이 포함되어 있습니다.
-                      */}
                       <Icon
                         strokeWidth={2}
                         className={`
