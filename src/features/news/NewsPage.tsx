@@ -21,8 +21,7 @@ export function NewsPage() {
   return (
     <div className="h-full overflow-y-auto custom-scrollbar">
       <div className="p-6 space-y-6 pb-20 max-w-7xl mx-auto">
-        
-        {/* 네비게이션 그리드 */}
+
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
           {newsSections.map((section) => (
             <NavLink
@@ -31,34 +30,25 @@ export function NewsPage() {
               className={({ isActive }) => `
                 p-4 rounded-2xl text-left transition-all duration-300 cursor-pointer group border relative overflow-hidden flex flex-col
                 ${isActive
-                  // Active: 파란색 테마 (Blue & Cyan)
                   ? "bg-white/90 border-blue-200 shadow-xl scale-[1.02] ring-1 ring-blue-100"
-                  // Inactive: 호버 시 연한 파란 테두리
                   : "bg-white/60 border-transparent hover:bg-white/80 hover:border-blue-100 hover:shadow-md hover:scale-[1.01]"
                 }
               `}
             >
               {({ isActive }) => (
                 <>
-                  {/* 우상단 배경 빛 효과 (Blue -> Cyan) */}
                   {isActive && (
                     <div className="absolute -right-4 -top-4 w-20 h-20 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full blur-xl opacity-60" />
                   )}
-
-                  {/* 아이콘 컨테이너 */}
                   <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-3 transition-transform duration-300 group-hover:scale-110 shadow-sm z-10 relative ${
                     isActive
-                      // Active: 진한 파란색 그라데이션 아이콘 배경
                       ? "bg-gradient-to-br from-blue-400 to-cyan-400 shadow-blue-200"
                       : "bg-white text-blue-300"
                   }`}>
-                    {/* 아이콘 색상 */}
                     <div className={isActive ? "text-white" : "text-gray-400 group-hover:text-blue-400"}>
                       {section.icon}
                     </div>
                   </div>
-
-                  {/* 텍스트 정보 */}
                   <div className="relative z-10 mt-auto">
                     <div className={`font-bold text-sm md:text-base mb-0.5 transition-colors ${
                       isActive ? "text-gray-800" : "text-gray-600"
