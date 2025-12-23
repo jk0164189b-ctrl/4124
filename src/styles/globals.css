@@ -92,4 +92,25 @@
   --color-pastel-peach: rgb(255, 199, 158);
   --color-pastel-yellow: rgb(255, 229, 153);
 
+  /* 1. Blue - Cyan (뉴스/정보) */
+  --color-theme-blue: #60a5fa;  /* blue-400 */
+  --color-theme-cyan: #22d3ee;  /* cyan-400 */
+  --color-theme-blue-soft: #dbeafe; /* blue-100 (배경용) */
+
+  /* 2. Pink - Rose (러블리/이벤트) */
+  --color-theme-pink: #f472b6;  /* pink-400 */
+  --color-theme-rose: #fb7185;  /* rose-400 */
+  --color-theme-pink-soft: #fce7f3; /* pink-100 (배경용) */
+
+  /* 3. Purple - Pink (굿즈/상점) */
+  --color-theme-purple: #c084fc; /* purple-400 */
+  --color-theme-fuchsia: #e879f9; /* fuchsia-400 (Pink 대용) */
+  --color-theme-purple-soft: #f3e8ff; /* purple-100 (배경용) */
+
+  /* 4. Emerald - Teal (커뮤니티/위키) */
+  --color-theme-emerald: #34d399; /* emerald-400 */
+  --color-theme-teal: #2dd4bf;    /* teal-400 */
+  --color-theme-emerald-soft: #d1fae5; /* emerald-100 (배경용) */
+}
+
 }
