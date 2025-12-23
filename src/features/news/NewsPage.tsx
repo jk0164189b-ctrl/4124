@@ -86,15 +86,15 @@ export function NewsPage() {
               >
                 {({ isActive }) => (
                   <>
-                    {/* 우상단 blur 효과 (Active 상태 + Hover 상태 모두 적용) */}
+                    {/* 우상단 blur 효과 */}
                     <div
                       className={`
                         absolute -top-4 -right-4 w-24 h-24 rounded-full blur-2xl 
                         transition-opacity duration-300 pointer-events-none
                         ${
                           isActive
-                            ? "opacity-60" // 클릭됨: 진하게
-                            : "opacity-0 group-hover:opacity-40" // 호버: 은은하게
+                            ? "opacity-60"
+                            : "opacity-0 group-hover:opacity-40"
                         } 
                       `}
                       style={{
@@ -104,6 +104,7 @@ export function NewsPage() {
                     />
 
                     {/* 아이콘 컨테이너 */}
+                    {/* text- 클래스를 이곳(부모)이나 아이콘에 직접 주어 색상을 제어합니다 */}
                     <div
                       className={`
                         relative z-10 mb-3 w-12 h-12 rounded-xl flex items-center justify-center 
@@ -115,21 +116,22 @@ export function NewsPage() {
                         }
                       `}
                     >
-                      {/* 아이콘 (stroke- 클래스 사용) */}
                       <Icon
+                        /* 핵심 수정 사항: stroke="currentColor" 명시 + text- 클래스 사용 */
+                        stroke="currentColor" 
+                        strokeWidth={2}
                         className={`
                           w-6 h-6 transition-colors duration-300
                           ${
                             isActive
-                              ? "stroke-white" // 클릭됨: 흰색
-                              : "stroke-blue-500 group-hover:stroke-white" // 평소: 파랑 -> 호버: 흰색
+                              ? "text-white" // 클릭됨: 흰색 (currentColor가 흰색이 됨)
+                              : "text-blue-500 group-hover:text-white" // 평소: 파랑 -> 호버: 흰색
                           }
                         `}
-                        strokeWidth={2} // 두께 설정 (선택 사항)
                       />
                     </div>
 
-                    {/* 텍스트 */}
+                    {/* 텍스트 라벨 */}
                     <div className="relative z-10 mt-auto">
                       <div
                         className={`font-bold text-sm md:text-base transition-colors duration-300 ${
