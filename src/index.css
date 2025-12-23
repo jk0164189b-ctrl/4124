@@ -453,6 +453,101 @@
 }
 
 @layer utilities {
+  .border-blue-100 { border-color: var(--color-blue-100); }
+  .border-blue-200 { border-color: var(--color-blue-200); }
+  .ring-blue-100 { --tw-ring-color: var(--color-blue-100); }
+  .text-blue-500 { color: var(--color-blue-500); }
+  .stroke-blue-500 { stroke: var(--color-blue-500); }
+  .shadow-blue-200 { --tw-shadow-color: var(--color-blue-200); }
+
+  /* 그라데이션: Blue <-> Cyan */
+  .from-blue-100 { 
+    --tw-gradient-from: var(--color-blue-100); 
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)); 
+  }
+  .to-cyan-100 { 
+    --tw-gradient-to: var(--color-cyan-100); 
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)); 
+  }
+  
+  .from-blue-400 { 
+    --tw-gradient-from: var(--color-blue-400); 
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)); 
+  }
+  .to-cyan-400 { 
+    --tw-gradient-to: var(--color-cyan-400); 
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)); 
+  }
+
+  /* Group Hover 텍스트 */
+  .group-hover\:text-blue-500:is(:where(.group):hover *) { color: var(--color-blue-500); }
+
+
+  /* ------------------------------------------------------------------------
+     2. Pink (메인) - Rose (서브) : 이벤트/사랑 (화려함)
+     ------------------------------------------------------------------------ */
+  .border-pink-100 { border-color: var(--color-pink-100); }
+  .border-pink-200 { border-color: var(--color-pink-200); }
+  .ring-pink-100 { --tw-ring-color: var(--color-pink-100); }
+  .text-pink-500 { color: var(--color-pink-500); }
+  .stroke-pink-500 { stroke: var(--color-pink-500); }
+  .shadow-pink-200 { --tw-shadow-color: var(--color-pink-200); }
+
+  /* 그라데이션: Pink <-> Rose */
+  .from-pink-100 { 
+    --tw-gradient-from: var(--color-pink-100); 
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)); 
+  }
+  .to-rose-100 { 
+    --tw-gradient-to: var(--color-rose-100); 
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)); 
+  }
+
+  .from-pink-400 { 
+    --tw-gradient-from: var(--color-pink-400); 
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)); 
+  }
+  .to-rose-400 { 
+    --tw-gradient-to: var(--color-rose-400); 
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)); 
+  }
+
+  /* Group Hover 텍스트 */
+  .group-hover\:text-pink-500:is(:where(.group):hover *) { color: var(--color-pink-500); }
+
+
+  /* ------------------------------------------------------------------------
+     3. Emerald (메인) - Teal (서브) : 힐링/자연 (편안함)
+     ------------------------------------------------------------------------ */
+  .border-emerald-100 { border-color: var(--color-emerald-100); }
+  .border-emerald-200 { border-color: var(--color-emerald-200); }
+  .ring-emerald-100 { --tw-ring-color: var(--color-emerald-100); }
+  .text-emerald-500 { color: var(--color-emerald-500); }
+  .stroke-emerald-500 { stroke: var(--color-emerald-500); }
+  .shadow-emerald-200 { --tw-shadow-color: var(--color-emerald-200); }
+
+  /* 그라데이션: Emerald <-> Teal */
+  .from-emerald-100 { 
+    --tw-gradient-from: var(--color-emerald-100); 
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)); 
+  }
+  .to-teal-100 { 
+    --tw-gradient-to: var(--color-teal-100); 
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)); 
+  }
+
+  .from-emerald-400 { 
+    --tw-gradient-from: var(--color-emerald-400); 
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)); 
+  }
+  .to-teal-400 { 
+    --tw-gradient-to: var(--color-teal-400); 
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)); 
+  }
+
+  /* Group Hover 텍스트 */
+  .group-hover\:text-emerald-500:is(:where(.group):hover *) { color: var(--color-emerald-500); }
+  
   .pointer-events-none {
     pointer-events: none;
   }
