@@ -9,12 +9,12 @@ import {
 } from "lucide-react";
 
 const activitySections = [
-  { id: "todo", title: "할 일 목록", description: "오늘의 덕질 체크", icon: CheckSquare, path: "todo" },
-  { id: "voting", title: "투표 · Hype", description: "화력 지원 하러가기", icon: Trophy, path: "voting" },
-  { id: "events", title: "이벤트", description: "진행 중인 이벤트", icon: Calendar, path: "events" },
-  { id: "trending", title: "트렌딩 툴", description: "실시간 인기 급상승", icon: TrendingUp, path: "trending" },
-  { id: "streaming", title: "음원 스밍", description: "스트리밍 가이드", icon: Music, path: "streaming" },
-  { id: "youtubeFix", title: "YouTube Fix", description: "프리미엄 기능 복구", icon: Wrench, path: "youtube-fix" },
+  { id: "todo", title: "할 일 목록", description: "오늘의 덕질 체크", icon: <CheckSquare className="w-6 h-6" />, path: "todo" },
+  { id: "voting", title: "투표 · Hype", description: "화력 지원 하러가기", icon: <Trophy className="w-6 h-6" />, path: "voting" },
+  { id: "events", title: "이벤트", description: "진행 중인 이벤트", icon: <Calendar className="w-6 h-6" />, path: "events" },
+  { id: "trending", title: "트렌딩 툴", description: "실시간 인기 급상승", icon: <TrendingUp className="w-6 h-6" />, path: "trending" },
+  { id: "streaming", title: "음원 스밍", description: "스트리밍 가이드", icon: <Music className="w-6 h-6" />, path: "streaming" },
+  { id: "youtubeFix", title: "YouTube Fix", description: "프리미엄 기능 복구", icon: <Wrench className="w-6 h-6" />, path: "youtube-fix" },
 ];
 
 export function ActivitiesPage() {
@@ -26,7 +26,7 @@ export function ActivitiesPage() {
           {activitySections.map((section) => (
             <NavLink
               key={section.id}
-              to={`/activites/${section.path}`}
+              to={`/activities/${section.path}`}
               className={({ isActive }) => `
                 p-4 rounded-2xl text-left transition-all duration-300 cursor-pointer group border relative overflow-hidden flex flex-col
                 ${isActive
